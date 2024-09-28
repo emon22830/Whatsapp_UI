@@ -11,26 +11,56 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 4,
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.teal,
           title: Text('WhatsApp'),
           centerTitle: false,
-          bottom: TabBar(
-              tabs: [
-                Icon(Icons.camera_alt),
-                Text('Chats'),
-                Text('Status'),
-                Text('Call'),
-              ]
-          ),
+          bottom: TabBar(tabs: [
+            Tab(child: Icon(Icons.camera_alt)),
+            Tab(child: Text('Chats')),
+            Tab(child: Text('Status')),
+            Tab(child: Text('Call')),
+          ]),
+          actions: [
+            Icon(Icons.search),
+            SizedBox(
+              width: 10,
+            ),
+            PopupMenuButton(
+                icon: const Icon(Icons.more_horiz_outlined),
+                itemBuilder: (
+                  context,
+                ) =>
+                    [
+                      const PopupMenuItem(
+                        child: Text('New Group'),
+                        value: 1,
+                      ),
+                      const PopupMenuItem(
+                        child: Text('Settings '),
+                        value: 2,
+                      ),
+                      const PopupMenuItem(
+                        child: Text('Log-Out'),
+                        value: 3,
+                      ),
+                    ]),
+            const SizedBox(
+              width: 10,
+            ),
+          ],
         ),
         body: TabBarView(children: [
-          Text('1'),
-          Text('1'),
-          Text('1'),
-
+          Text('Camera'),
+          ListView.builder(
+            itemCount: 100,
+              itemBuilder: (context, index){
+            return Text('Calls');
+          }),
+        Text('Status'),
+          Text('Call'),
         ]),
       ),
     );
