@@ -57,10 +57,32 @@ class _HomeScreenState extends State<HomeScreen> {
           ListView.builder(
             itemCount: 100,
               itemBuilder: (context, index){
-            return Text('Calls');
+            return ListTile(
+              leading: CircleAvatar(
+                backgroundImage: NetworkImage('https://tse3.mm.bing.net/th?id=OIP.--YYBu8pIl56ZCySOTCBmgHaHa&pid=Api&P=0&h=220'),
+              ),
+              title: Text('John Wick'),
+              subtitle: Text('Where is my dog?'),
+              trailing: Text('6.36 PM'),
+            );
           }),
         Text('Status'),
-          Text('Call'),
+          ListView.builder(
+              itemCount: 100,
+              itemBuilder: (context, index){
+                return ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage('https://tse3.mm.bing.net/th?id=OIP.--YYBu8pIl56ZCySOTCBmgHaHa&pid=Api&P=0&h=220'),
+                  ),
+
+                  title: Text('John Wick'),
+                  subtitle: Align(
+                    alignment: Alignment.topLeft,
+                    child: Icon(Icons.phone),
+                  ),
+                  trailing: Text('6.36 PM'),
+                );
+              }),
         ]),
       ),
     );
